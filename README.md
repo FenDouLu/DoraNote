@@ -1,6 +1,9 @@
 ## Base
 
     Markdown editor based on Electron and React
+### Demo
+
+![Demo](demo.png)
 
 ## Development
 
