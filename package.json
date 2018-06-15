@@ -1,0 +1,47 @@
+{
+  "name": "mook",
+  "version": "0.1.0",
+  "main": "public/main.js",
+  "homepage": "./",
+  "private": true,
+  "dependencies": {
+    "@skidding/react-codemirror": "^1.0.2",
+    "antd": "^3.6.2",
+    "codemirror": "^5.38.0",
+    "concurrently": "^3.5.1",
+    "electron": "^2.0.2",
+    "electron-builder": "^20.15.1",
+    "electron-is-dev": "^0.3.0",
+    "react": "^16.4.0",
+    "react-contexify": "^3.0.1",
+    "react-contexify-ext": "^2.0.21",
+    "react-contextmenu": "^2.9.2",
+    "react-dom": "^16.4.0",
+    "react-markdown": "^3.3.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "react-split-pane": "^0.1.77",
+    "react-ui-tree": "^4.0.0",
+    "wait-on": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "pre_test": "react-scripts test --env=jsdom",
+    "test": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && mocha\"",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "build --em.main=build/main.js",
+    "preelectron-pack": "yarn build"
+  },
+  "build": {
+    "appId": "com.mook",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
